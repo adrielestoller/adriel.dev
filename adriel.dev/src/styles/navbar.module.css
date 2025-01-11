@@ -1,0 +1,26 @@
+.container {
+  margin: 1rem;
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.link {
+  padding: 0 0.5rem 0.5rem;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  transition: 200ms;
+  border-bottom: 0.15rem solid transparent;
+
+  -webkit-text-decoration-color: transparent;
+  -moz-text-decoration-color: transparent;
+}
+
+.link:hover {
+  border-bottom-color: black;
+
+  -webkit-text-decoration-color: black;
+  -moz-text-decoration-color: black;
+}

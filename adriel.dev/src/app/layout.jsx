@@ -1,19 +1,20 @@
 import { Roboto_Mono, Inconsolata, Jersey_15 } from "next/font/google";
+import { FontProvider } from "providers/fontProvider";
 import "styles/globals.css";
 
-const roboto_mono = Roboto_Mono({
+const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
   subsets: ["latin"],
   weight: "400",
 });
 
-const inconsolata = Inconsolata({
+const inconsolataFont = Inconsolata({
   variable: "--font-inconsolata",
-  weight: "400",
+  weight: "600",
   subsets: ["latin"],
 });
 
-const jersey_15 = Jersey_15({
+const jerseyFont = Jersey_15({
   variable: "--font-jersey-15",
   weight: "400",
   subsets: ["latin"],
@@ -24,9 +25,17 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const fontValues = {
+    robotoMono: robotoMono.className,
+    inconsolata: inconsolataFont.className,
+    jersey: jerseyFont.className,
+  };
+
   return (
     <html lang="en">
-      <body className={roboto_mono.className}>{children}</body>
+      <body className={robotoMono.className}>
+        <FontProvider fonts={fontValues}>{children}</FontProvider>
+      </body>
     </html>
   );
 }
