@@ -1,26 +1,124 @@
 .container {
-  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  position: relative;
+  background-color: white;
+  z-index: 50;
+}
+
+.brand {
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.brandLink {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  text-decoration: none;
+  color: black;
+  padding: 0.5rem 0;
+}
+
+.linksContainer {
   display: flex;
   gap: 2rem;
-  flex-direction: row;
-  justify-content: end;
+  align-items: center;
 }
 
 .link {
-  padding: 0 0.5rem 0.5rem;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
   text-decoration: none;
   color: black;
   text-align: center;
-  transition: 200ms;
+  transition: all 200ms ease;
   border-bottom: 0.15rem solid transparent;
-
-  -webkit-text-decoration-color: transparent;
-  -moz-text-decoration-color: transparent;
 }
 
 .link:hover {
   border-bottom-color: black;
+}
 
-  -webkit-text-decoration-color: black;
-  -moz-text-decoration-color: black;
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: black;
+  z-index: 60;
+}
+
+@media (max-width: 768px) {
+  .menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menuOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 40;
+  }
+
+  .overlayVisible {
+    display: block;
+  }
+
+  .linksContainer {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    flex-direction: column;
+    background-color: white;
+    padding: 5rem 1.5rem 1.5rem;
+    gap: 1.5rem;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+  }
+
+  .menuOpen {
+    right: 0;
+  }
+
+  .link {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-bottom: none;
+    border-radius: 0.375rem;
+  }
+
+  .link:hover {
+    background-color: #e7e7e7;
+    border-bottom: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .menuOverlay {
+    position: static;
+    display: block;
+    background: none;
+  }
+
+  .linksContainer {
+    position: static;
+    padding: 0;
+    width: auto;
+    height: auto;
+    box-shadow: none;
+    background: none;
+  }
 }
